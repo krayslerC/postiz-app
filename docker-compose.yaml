@@ -184,6 +184,7 @@ services:
   # Temporal Stack
   # -----------------------
   temporal-elasticsearch:
+    restart: always
     container_name: temporal-elasticsearch
     image: elasticsearch:7.17.27
     environment:
@@ -202,6 +203,7 @@ services:
       - /var/lib/elasticsearch/data
 
   temporal-postgresql:
+    restart: always
     container_name: temporal-postgresql
     image: postgres:16
     environment:
@@ -215,6 +217,7 @@ services:
       - /var/lib/postgresql/data
 
   temporal:
+    restart: always
     container_name: temporal
     ports:
       - '7233:7233'
@@ -254,6 +257,7 @@ services:
     tty: true
 
   temporal-ui:
+    restart: always
     container_name: temporal-ui
     image: temporalio/ui:2.34.0
     environment:
